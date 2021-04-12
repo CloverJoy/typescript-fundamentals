@@ -13,12 +13,12 @@ x = "hello mars";
 /**
  * (3) but if we try to change type
  */
-x = 42; // 🚨 ERROR
+// x = 42; // 🚨 ERROR
 
 /**
  * (4) let's look at const. The type is literally 'hello world'
  */
-const y = "hello world";
+const y:string = "hello world";
 
 /**
  * This is called a 'string literal type'. y can never be reassigned since it's a const,
@@ -29,7 +29,7 @@ const y = "hello world";
 /**
  * (5) sometimes we need to declare a variable w/o initializing it
  */
-let z;
+let z:any;
 z = 41;
 z = "abc"; // (6) oh no! This isn't good
 
@@ -42,9 +42,9 @@ z = "abc"; // (6) oh no! This isn't good
  * (7) we could improve this situation by providing a type annotation
  * when we declare our variable
  */
-let zz: string;
+let zz: number;
 zz = 41;
-zz = "abc"; // 🚨 ERROR Type '"abc"' is not assignable to type 'number'.
+// zz = "abc"; // 🚨 ERROR Type '"abc"' is not assignable to type 'number'.
 
 //== SIMPLE ARRAYS ==//
 
@@ -53,19 +53,19 @@ zz = "abc"; // 🚨 ERROR Type '"abc"' is not assignable to type 'number'.
  */
 let aa: number[] = [];
 aa.push(33);
-aa.push("abc"); // 🚨 ERROR: Argument of type '"abc"' is not assignable to parameter of type 'number'.
+aa.push(parseInt("23")); // 🚨 ERROR: Argument of type '"abc"' is not assignable to parameter of type 'number'.
 
 /**
  * (9) we can even define a tuple, which has a fixed length
  */
-let bb: [number, string, string, number] = [
+let bb: [number, string, string, number?] = [
   123,
   "Fake Street",
   "Nowhere, USA",
   10110
 ];
 
-bb = [1, "yoo", 3]; // 🚨 ERROR: Type 'number' is not assignable to type 'string'.
+bb = [1, "yoo", "string"]; // 🚨 ERROR: Type 'number' is not assignable to type 'string'.
 
 /**
  * (10) Tuple values often require type annotations (  : [number, number] )
