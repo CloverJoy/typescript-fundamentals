@@ -111,6 +111,17 @@ interface Address {
 // and refer to it by name
 let ee: Address = { houseNumber: 33 };
 
+interface Test {
+  arrayInsideObject: [number, string, boolean],
+  interfaceInsideObject: Address,
+  vanillaObject?: {first?: number, second?: string}
+}
+
+let testTheTest: Test = {
+  arrayInsideObject: [12, "hello", false],
+  interfaceInsideObject: { houseNumber: 48, streetName: "street name wow" },
+}
+
 //== UNION & INTERSECTION ==//
 
 /**
